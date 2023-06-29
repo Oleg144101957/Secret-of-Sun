@@ -44,13 +44,11 @@ fun FirstScreen(navigation: NavHostController){
         delay(2000)
         val stringFromFile = dataReaderAndWriter.readData()
 
-        navigation.navigate(Destinations.Second.route)
-
-//        if(stringFromFile.length<60){
-//            navigation.navigate(Destinations.Second.route)
-//        } else {
-//            navigation.navigate(Destinations.Fourth.route)
-//        }
+        if(stringFromFile.length<60){
+            navigation.navigate(Destinations.Second.route)
+        } else {
+            navigation.navigate(Destinations.Fourth.route)
+        }
     }
 
     LaunchedEffect(key1 = "Loading animation"){

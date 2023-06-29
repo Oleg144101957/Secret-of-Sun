@@ -2,6 +2,7 @@ package jp.co.capcom.mhssfe.data
 
 import android.content.Context
 import android.util.Log
+import jp.co.capcom.mhssfe.SecretConstants
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
@@ -20,8 +21,7 @@ class DataReaderWriter(context: Context) {
                 }
             }
         } catch (e: IOException) {
-            Log.d("123123", "MainActivity somethig goes wrong in read block")
-
+            Log.d("123123", "MainActivity something goes wrong in read block")
         }
 
         return stringBuilder.toString()
@@ -36,5 +36,19 @@ class DataReaderWriter(context: Context) {
         fileWriter.close()
     }
 
+    fun urlChecker(data: String){
+        val currentData = this.readData()
 
+        Log.d("123123", "urlChecker the current data is $currentData")
+        Log.d("123123", "urlChecker the data to save is $data")
+
+        if (currentData.contains(SecretConstants.DELIMETER)){
+            //We already have endPoint do nothing
+        }else{
+            writeData(SecretConstants.DELIMETER)
+            writeData(data)
+            //We need to add ------- delimeter and save the link
+        }
+
+    }
 }

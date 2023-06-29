@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
             if (file.exists()){
                 val stringFromFile = dataReaderWriter.readData()
 
-                if (stringFromFile.length<60){
+                if (stringFromFile.length<90){
                     //add static data
                     dataReaderWriter.writeData(STATIC_DATA)
                     dataManager.initDataManager()

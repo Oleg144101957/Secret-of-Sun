@@ -20,6 +20,7 @@ class SecretConstants {
         const val BTN_PLAY = "Play"
         const val BTN_SETTINGS = "Settings"
         const val BTN_RULES = "Rules"
+        const val DELIMETER = "-------"
 
     }
 }

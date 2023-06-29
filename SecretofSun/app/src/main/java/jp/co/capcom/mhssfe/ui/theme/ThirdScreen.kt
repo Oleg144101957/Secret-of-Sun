@@ -50,6 +50,10 @@ fun ThirdScreen(){
     val matrix = ColorMatrix()
     matrix.setToSaturation(0F)
 
+    val isLose = remember {
+        mutableStateOf(false)
+    }
+
 
     val offsetX1 = remember { mutableFloatStateOf(0f) }
     val offsetY1 = remember { mutableFloatStateOf(150f) }
@@ -77,7 +81,7 @@ fun ThirdScreen(){
             delay(1000L)
             timer -= 1
         } else {
-            //Lose !
+            isLose.value = true
         }
     }
 
@@ -102,6 +106,17 @@ fun ThirdScreen(){
                 .align(Alignment.Center)
                 .offset(y = 64.dp)
         )
+
+        if(isLose.value){
+            Text(
+                text = "You Lose (",
+                color = Color.Yellow,
+                fontSize = 56.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .align(Alignment.Center)
+            )
+        }
 
         Row(modifier = Modifier
             .align(Alignment.BottomCenter)

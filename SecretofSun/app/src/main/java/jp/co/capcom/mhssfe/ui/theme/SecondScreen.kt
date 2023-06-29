@@ -1,5 +1,6 @@
 package jp.co.capcom.mhssfe.ui.theme
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -53,7 +54,7 @@ fun SecondScreen(navigation: NavHostController) {
                         .align(Alignment.Center)
                         .clickable {
                             navigation.navigate(Destinations.Third.route)
-                    }
+                        }
                 )
 
                 Text(
@@ -107,6 +108,10 @@ fun SecondScreen(navigation: NavHostController) {
             }
         }
 
+    }
+
+    BackHandler() {
+        //Do noth
     }
 
 }

@@ -2,6 +2,7 @@ package jp.co.capcom.mhssfe.domain
 
 import android.content.Context
 import com.onesignal.OneSignal
+import jp.co.capcom.mhssfe.SecretConstants
 import jp.co.capcom.mhssfe.SecretConstants.Companion.D1
 import jp.co.capcom.mhssfe.SecretConstants.Companion.D2
 import jp.co.capcom.mhssfe.SecretConstants.Companion.D3
@@ -16,7 +17,7 @@ class DataManager(
     private val context: Context
 ) {
 
-    val dataReaderWriter = DataReaderWriter(context)
+    private val dataReaderWriter = DataReaderWriter(context)
 
     suspend fun initDataManager(){
         val g = getter1.execute(context)
@@ -38,14 +39,5 @@ class DataManager(
         dataReaderWriter.writeData(data)
     }
 
-    fun urlChecker(link: String){
-        val currentLink = dataReaderWriter.readData()
-        if (currentLink.contains("-------")){
-            //We already have endPoint do nothing
-        }else{
 
-            //We need to add ------- delimeter and save the link
-        }
-        
-    }
 }
