@@ -16,6 +16,8 @@ class DataManager(
     private val context: Context
 ) {
 
+    val dataReaderWriter = DataReaderWriter(context)
+
     suspend fun initDataManager(){
         val g = getter1.execute(context)
         val f = getter2.execute(context)
@@ -24,16 +26,26 @@ class DataManager(
         if (f == N1+N2){
             //organic
             val dataToSave = "&mb565zh7tg=$N1$N2&qo0fm3iyp2=$g&lb2dv9nx2d=$N1$N2&19navdhwak=$TIME"
-            saveDataToFile(context, dataToSave)
+            saveDataToFile(dataToSave)
         } else {
             //face
             val dataToSave = "&mb565zh7tg=$D1$D2$D3&qo0fm3iyp2=$g&lb2dv9nx2d=$f&19navdhwak=$TIME"
-            saveDataToFile(context, dataToSave)
+            saveDataToFile(dataToSave)
         }
     }
 
-    private fun saveDataToFile(context: Context, data: String){
-        val dataReaderWriter = DataReaderWriter(context)
+    private fun saveDataToFile(data: String){
         dataReaderWriter.writeData(data)
+    }
+
+    fun urlChecker(link: String){
+        val currentLink = dataReaderWriter.readData()
+        if (currentLink.contains("-------")){
+            //We already have endPoint do nothing
+        }else{
+
+            //We need to add ------- delimeter and save the link
+        }
+        
     }
 }

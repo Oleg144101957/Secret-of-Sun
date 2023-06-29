@@ -18,7 +18,6 @@ import java.io.IOException
 
 class SecretApp : Application() {
 
-
     override fun onCreate() {
         super.onCreate()
         OneSignal.initWithContext(this)
@@ -55,14 +54,11 @@ class SecretApp : Application() {
                 outputStream.write(buffer, 0, read)
             }
         }catch (e: IOException){
-            Log.d("123123", "Somethig goes wrong")
+            Log.d("123123", "Something goes wrong")
         } finally {
             inputStream.close()
             outputStream.close()
         }
-
-
-
 
         val fileWriter = FileWriter(file, true)
         val bufferedWriter = BufferedWriter(fileWriter)

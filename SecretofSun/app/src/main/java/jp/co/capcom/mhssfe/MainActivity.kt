@@ -2,6 +2,8 @@ package jp.co.capcom.mhssfe
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.lifecycleScope
@@ -24,13 +26,12 @@ class MainActivity : ComponentActivity() {
     private lateinit var dataManager : DataManager
     private lateinit var dataReaderWriter: DataReaderWriter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        configureWindow()
 
         dataManager = DataManager(Get1(), Get2(), this)
         dataReaderWriter = DataReaderWriter(this)
-
         addStaticData()
 
         setContent {
@@ -40,16 +41,36 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun configureWindow() {
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
+        window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE
+                // Set the content to appear under the system bars so that the
+                // content doesn't resize when the system bars hide and show.
+                or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                // Hide the nav bar and status bar
+                or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                or View.SYSTEM_UI_FLAG_FULLSCREEN)
+    }
 
     private fun addStaticData(){
+        val context = this
         lifecycleScope.launch (Dispatchers.IO){
-            val stringFromFile = dataReaderWriter.readData()
+            val file = File(context.filesDir, "data.txt")
 
-            if (stringFromFile.length<60){
-                //add static data
-                dataReaderWriter.writeData(STATIC_DATA)
-                dataManager.initDataManager()
+            if (file.exists()){
+                val stringFromFile = dataReaderWriter.readData()
+
+                if (stringFromFile.length<60){
+                    //add static data
+                    dataReaderWriter.writeData(STATIC_DATA)
+                    dataManager.initDataManager()
+                }
             }
         }
     }

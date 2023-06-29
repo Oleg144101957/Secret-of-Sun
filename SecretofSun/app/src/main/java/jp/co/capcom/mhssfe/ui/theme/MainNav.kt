@@ -27,5 +27,13 @@ fun MainNav() {
         composable(route = Destinations.Fourth.route){
             FourthScreen(navigation)
         }
+
+        composable(route = Destinations.Fifth.route){
+            FifthScreen()
+        }
+
+        composable(route = Destinations.Sixth.route){
+            SixthScreen()
+        }
     }
 }

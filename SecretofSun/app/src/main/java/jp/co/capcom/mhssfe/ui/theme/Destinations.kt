@@ -5,4 +5,6 @@ sealed class Destinations(val route: String){
     object Second : Destinations("second_dest")
     object Third : Destinations("third_dest")
     object Fourth : Destinations("fourth_dest")
+    object Fifth : Destinations("fifth_dest")
+    object Sixth : Destinations("sixth_dest")
 }

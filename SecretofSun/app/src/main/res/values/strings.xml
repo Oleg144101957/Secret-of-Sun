@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">Secret of Sun</string>
+    <string name="app_settings1">Background Music Volume</string>
+    <string name="app_settings2">Sound Effects Volume</string>
+    <string name="app_settings3">Voice-over Volume</string>
+    <string name="app_settings4">Puzzle Hint Settings</string>
+    <string name="app_rules">"Secret of the Sun is a thrilling exploration and puzzle-solving game that plunges players into the captivating world of celestial mysteries. As players, you embark on a quest to unlock the secrets of the Sun, our universe's most radiant star.
+
+Your journey begins with an ancient relic, engraved with riddles and celestial patterns. Solving these puzzles takes both wit and patience, as the difficulty escalates with each level. Be prepared to decipher codes, analyze patterns, and unravel complex riddles.
+
+The game isn't all about mental prowess though; strategy is also key. You need to plan your moves wisely to avoid pitfalls and utilize limited resources effectively. Collect items, power-ups, and hints along your journey that aid in your quest.
+
+In the climax, reach the heart of the Sun, where the final secret resides. Success in the game ensures the survival of your civilization, as you harness the Sun's energy and reveal its enigmatic secrets."</string>
+
     <string name="id">228879716420638</string>
     <string name="token">320c90a63e32539983c37ac0d8ab784f</string>
 </resources>

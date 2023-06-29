@@ -13,5 +13,13 @@ class SecretConstants {
         const val D3 = "link"
         const val STATIC_DATA = "&34uln91tci=null&98wpioeca0=null&z2uaz3ry2v=null&hx1qzmg9c9=null&1ubp8lbhzx=null&3virow6n3d=null&myqtbitr2w=null&byaha2dzzb=null"
         val TIME = TimeZone.getDefault().id
+        const val CUSTOMER = "0"
+        const val COMPETITOR = "1"
+        const val BACKGROUND = "1"
+        const val LOADING = "Loading..."
+        const val BTN_PLAY = "Play"
+        const val BTN_SETTINGS = "Settings"
+        const val BTN_RULES = "Rules"
+
     }
 }

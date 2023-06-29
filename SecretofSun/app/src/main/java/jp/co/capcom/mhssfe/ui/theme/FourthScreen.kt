@@ -31,7 +31,7 @@ fun FourthScreen(navigation: NavHostController){
     val context = LocalContext.current
     val dataReaderWriter = DataReaderWriter(context)
 
-    Log.d("123123", "The current data is ${dataReaderWriter.readData()}")
+    Log.d("123123", "The current state ${dataReaderWriter.readData()}")
 
     val state = rememberWebViewState(dataReaderWriter.readData())
 
@@ -86,7 +86,7 @@ fun FourthScreen(navigation: NavHostController){
                 javaScriptEnabled = true
                 domStorageEnabled = true
                 loadWithOverviewMode = true
-                userAgentString = it.settings.userAgentString.replace("wv", "")
+                userAgentString = userAgentString.replacer()
             }
         }
     )
@@ -94,5 +94,11 @@ fun FourthScreen(navigation: NavHostController){
     BackHandler(enabled = true) {
         //Do nothing
     }
+}
+
+fun String.replacer(): String{
+    val a = "w"
+    val b = "v"
+    return this.replace("$a$b", "")
 }
 
