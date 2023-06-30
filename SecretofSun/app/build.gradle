@@ -5,6 +5,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/home/october/Trident')
+            storePassword 'Trident'
+            keyAlias 'key0'
+            keyPassword 'Trident'
+        }
+    }
     namespace 'jp.co.capcom.mhssfe'
     compileSdk 33
 
@@ -23,8 +31,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {

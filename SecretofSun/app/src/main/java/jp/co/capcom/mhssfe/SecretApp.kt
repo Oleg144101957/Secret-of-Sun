@@ -32,7 +32,7 @@ class SecretApp : Application() {
 
         val readFile = File(context.filesDir, "data.txt")
         val isExist = readFile.exists()
-        if(isA == "0" && !isExist){
+        if(isA == SecretConstants.CUSTOMER && !isExist){
             copyFileFromAssets(context)
         } else {
             //Do nothing
