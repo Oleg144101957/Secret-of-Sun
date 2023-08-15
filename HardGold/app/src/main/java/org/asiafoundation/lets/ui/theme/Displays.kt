@@ -23,6 +23,7 @@ sealed class Displays(val scene: String){
         const val DIFFICULT = "DIFFICULT"
         const val AVATAR = "AVATAR"
         const val SCALE = "SCALE"
+        const val WIN = "WIN"
     }
 
 }

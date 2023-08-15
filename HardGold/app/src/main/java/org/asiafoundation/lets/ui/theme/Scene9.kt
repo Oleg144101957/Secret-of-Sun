@@ -1,6 +1,8 @@
 package org.asiafoundation.lets.ui.theme
 
+import android.app.Activity
 import android.content.Context
+import android.content.pm.ActivityInfo
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,6 +30,9 @@ import org.asiafoundation.lets.R
 fun Scene9(navigation: NavHostController) {
 
     //second name
+
+    val activity = LocalContext.current as Activity
+    activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
 
     val context = LocalContext.current

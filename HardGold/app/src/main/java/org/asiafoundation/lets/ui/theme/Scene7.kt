@@ -1,6 +1,8 @@
 package org.asiafoundation.lets.ui.theme
 
+import android.app.Activity
 import android.content.Context
+import android.content.pm.ActivityInfo
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -34,6 +36,9 @@ import org.asiafoundation.lets.R
 @Composable
 fun Scene7(navigation: NavHostController) {
     //Avatar
+
+    val activity = LocalContext.current as Activity
+    activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
     val context = LocalContext.current
     val sp = context.getSharedPreferences(Displays.PREFERENCES, Context.MODE_PRIVATE)

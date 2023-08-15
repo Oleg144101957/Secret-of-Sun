@@ -1,5 +1,7 @@
 package org.asiafoundation.lets.ui.theme
 
+import android.app.Activity
+import android.content.pm.ActivityInfo
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -26,6 +29,9 @@ import org.asiafoundation.lets.R
 fun Scene8(navigation: NavHostController) {
     
     //gold screen
+    val activity = LocalContext.current as Activity
+    activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
     
     val myFont = FontFamily(Font(R.font.chibola))
 
@@ -127,13 +133,6 @@ fun Scene8(navigation: NavHostController) {
                         .align(Alignment.Center)
                 )
             }
-
-
-
-
-
-
-
         }
     }
 }

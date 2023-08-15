@@ -1,6 +1,8 @@
 package org.asiafoundation.lets.ui.theme
 
+import android.app.Activity
 import android.content.Context
+import android.content.pm.ActivityInfo
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,6 +32,9 @@ fun Scene5(navigation: NavHostController) {
 
     //Name
 
+    val activity = LocalContext.current as Activity
+    activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
     val context = LocalContext.current
     val sp = context.getSharedPreferences(Displays.PREFERENCES, Context.MODE_PRIVATE)
     val nameFromSP = sp.getString(Displays.NAME, "user") ?: "user"
@@ -51,7 +56,9 @@ fun Scene5(navigation: NavHostController) {
         TextField(
             value = name.value,
             modifier = Modifier
-                .align(Alignment.Center),
+                .align(Alignment.Center)
+                .offset(y = 32.dp)
+            ,
             onValueChange = {
                 val textAfterFilter = it.replace("\n", "")
                 name.value = textAfterFilter
@@ -65,7 +72,7 @@ fun Scene5(navigation: NavHostController) {
             fontFamily = myFont,
             modifier = Modifier
                 .align(Alignment.Center)
-                .offset((-64).dp)
+                .offset(y = (-32).dp)
         )
     }
 }

@@ -1,5 +1,7 @@
 package org.asiafoundation.lets.ui.theme
 
+import android.app.Activity
+import android.content.pm.ActivityInfo
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.Animatable
@@ -33,6 +35,9 @@ import org.asiafoundation.lets.R
 
 @Composable
 fun Scene2(navigation: NavHostController) {
+
+    val activity = LocalContext.current as Activity
+    activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
     val context = LocalContext.current as ComponentActivity
 
